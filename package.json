@@ -1,0 +1,47 @@
+{
+  "name": "@mhmod-hsn/iconary",
+  "description": "React Icon Library",
+  "version": "0.0.1",
+  "keywords": [
+    "React",
+    "SVG",
+    "Icons"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "svgr": "svgr --config-file svgr.config.js -d build src/assets/icons",
+    "rollup": "rollup -c --bundleConfigAsCjs",
+    "prebuild": "rimraf build && rimraf dist",
+    "build": "npm run svgr && npm run rollup",
+    "postbuild": "rimraf build && rimraf dist/esm/types",
+    "prerelease": "npm run build",
+    "release": "npm publish"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-react": "^7.18.6",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-terser": "^0.4.1",
+    "@rollup/plugin-typescript": "^11.1.0",
+    "@svgr/cli": "^7.0.0",
+    "@types/react": "^18.2.0",
+    "path": "^0.12.7",
+    "rimraf": "^5.0.0",
+    "rollup": "^3.21.0",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-filesize": "^10.0.0",
+    "svgo": "^3.0.2",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.21.0"
+  }
+}
